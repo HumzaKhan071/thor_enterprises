@@ -4,12 +4,12 @@ import 'package:google_fonts/google_fonts.dart';
 class MyButtonContainer extends StatelessWidget {
   final Color color;
   final String text;
-  final Color textColor;
+  final Color btnTextColor;
   const MyButtonContainer({
     Key? key,
     required this.color,
     required this.text,
-    required this.textColor,
+    required this.btnTextColor,
   }) : super(key: key);
 
   @override
@@ -26,7 +26,7 @@ class MyButtonContainer extends StatelessWidget {
           text,
           style: GoogleFonts.montserrat(
             fontSize: 20,
-            color: textColor,
+            color: btnTextColor,
           ),
         ),
       ),

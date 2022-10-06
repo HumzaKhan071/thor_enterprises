@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:thor_enterprises/Utils/Colors.dart';
 
 class MyOrderButtonContainer extends StatelessWidget {
   final Color color;
@@ -15,10 +16,10 @@ class MyOrderButtonContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 55,
       width: 150,
       decoration: BoxDecoration(
-        color: Color(0xff393939),
+        color: primaryColor,
         borderRadius: BorderRadius.circular(30),
         border: Border.all(color: color),
       ),

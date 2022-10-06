@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thor_enterprises/Screens/DashboardScreen.dart';
+import 'package:thor_enterprises/Screens/HomePage.dart';
 
 
 void main() {
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: MyDashboardScreen(),
+      home: MyHomePage(),
     );
   }
 }

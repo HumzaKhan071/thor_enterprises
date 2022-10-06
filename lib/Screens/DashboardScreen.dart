@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:thor_enterprises/Screens/Widgets/Mychart.dart';
+import 'package:thor_enterprises/Utils/Colors.dart';
 
 import 'Widgets/MyDashboardContainer.dart';
 
 class MyDashboardScreen extends StatelessWidget {
   MyDashboardScreen({super.key});
-// Initial Selected Value
-  String dropdownvalue = 'Item 1';
 
-  // List of items in our dropdown menu
-  var items = [
-    'Item 1',
-    'Item 2',
-    'Item 3',
-    'Item 4',
-    'Item 5',
-  ];
   @override
   Widget build(BuildContext context) {
+    // Initial Selected Value
+    String dropdownvalue = 'Item 1';
+
+    // List of items in our dropdown menu
+    var items = [
+      'Item 1',
+      'Item 2',
+      'Item 3',
+      'Item 4',
+      'Item 5',
+    ];
     return Scaffold(
-      backgroundColor: Color(0xff1C251D),
+      backgroundColor: primaryColor,
       appBar: AppBar(
-        backgroundColor: Color(0xff1C251D),
+        backgroundColor: primaryColor,
         elevation: 0,
         title: Text(
           "Store Dashboard",
@@ -53,13 +56,13 @@ class MyDashboardScreen extends StatelessWidget {
                       "\$ 4.25k",
                       style: GoogleFonts.montserrat(
                           fontSize: 40,
-                          color: Colors.white,
+                          color: textColor,
                           fontWeight: FontWeight.bold),
                     ),
                     Text("Current Balance",
                         style: GoogleFonts.montserrat(
                           fontSize: 15,
-                          color: Colors.white,
+                          color: textColor,
                         )),
                   ],
                 ),
@@ -71,7 +74,7 @@ class MyDashboardScreen extends StatelessWidget {
                 height: 60,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0xffC1EE33),
+                  color: buttonColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Center(
@@ -118,14 +121,14 @@ class MyDashboardScreen extends StatelessWidget {
                 height: 20,
               ),
               Container(
-                height: 500,
+                height: 430,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Color(0xff393939),
+                  color: secondaryColor,
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(15.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -133,7 +136,7 @@ class MyDashboardScreen extends StatelessWidget {
                         "Average Check",
                         style: GoogleFonts.montserrat(
                             fontSize: 20,
-                            color: Colors.white,
+                            color: textColor,
                             fontWeight: FontWeight.bold),
                       ),
                       SizedBox(
@@ -143,7 +146,7 @@ class MyDashboardScreen extends StatelessWidget {
                         height: 50,
                         width: 200,
                         decoration: BoxDecoration(
-                          color: Color(0xffC1EE33),
+                          color: buttonColor,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Center(
@@ -164,6 +167,10 @@ class MyDashboardScreen extends StatelessWidget {
                           ),
                         ),
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      LineChartSample2()
                     ],
                   ),
                 ),

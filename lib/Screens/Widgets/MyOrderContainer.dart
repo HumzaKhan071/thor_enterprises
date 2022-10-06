@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:thor_enterprises/Screens/Widgets/MyOrderButtonContainer.dart';
+import 'package:thor_enterprises/Utils/Colors.dart';
 
 class MyOrderContainer extends StatelessWidget {
   const MyOrderContainer({
@@ -17,8 +18,7 @@ class MyOrderContainer extends StatelessWidget {
             height: 250,
             width: double.infinity,
             decoration: BoxDecoration(
-                color: Color(0xff4E554E),
-                borderRadius: BorderRadius.circular(30)),
+                color: secondaryColor, borderRadius: BorderRadius.circular(30)),
             child: Padding(
                 padding: EdgeInsets.all(15.0),
                 child: Column(
@@ -30,7 +30,7 @@ class MyOrderContainer extends StatelessWidget {
                             height: 60,
                             width: 70,
                             decoration: BoxDecoration(
-                                color: Colors.white,
+                                color: textColor,
                                 borderRadius: BorderRadius.circular(10)),
                             child: Image.asset("assets/drone1.png")),
                         SizedBox(
@@ -43,7 +43,7 @@ class MyOrderContainer extends StatelessWidget {
                               "DJI Phantom 2",
                               style: GoogleFonts.montserrat(
                                   fontSize: 20,
-                                  color: Colors.white,
+                                  color: textColor,
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
@@ -53,7 +53,7 @@ class MyOrderContainer extends StatelessWidget {
                               "\$100 /day",
                               style: GoogleFonts.montserrat(
                                   fontSize: 18,
-                                  color: Colors.white,
+                                  color: textColor,
                                   fontWeight: FontWeight.bold),
                             ),
                             SizedBox(
@@ -63,7 +63,7 @@ class MyOrderContainer extends StatelessWidget {
                               "Total \$ 240 ",
                               style: GoogleFonts.montserrat(
                                 fontSize: 23,
-                                color: Colors.white,
+                                color: textColor,
                               ),
                             ),
                           ],
@@ -74,29 +74,31 @@ class MyOrderContainer extends StatelessWidget {
                       height: 20,
                     ),
                     Divider(
-                      color: Colors.white,
+                      color: textColor,
                       thickness: 2,
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 30,
                     ),
                     SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: const [
+                        children: [
                           MyOrderButtonContainer(
-                              color: Color(0xffC1EE33),
+                              color: buttonColor,
                               text: "COMPLETED",
-                              textColor: Color(0xffC1EE33)),
+                              textColor: buttonColor),
+                          SizedBox(width: 3),
                           MyOrderButtonContainer(
-                              color: Color(0xff4E554E),
+                              color: primaryColor,
                               text: "Daily",
-                              textColor: Colors.white),
+                              textColor: textColor),
+                          SizedBox(width: 3),
                           MyOrderButtonContainer(
-                              color: Color(0xff4E554E),
+                              color: primaryColor,
                               text: "AUG 21",
-                              textColor: Colors.white),
+                              textColor: textColor),
                         ],
                       ),
                     )

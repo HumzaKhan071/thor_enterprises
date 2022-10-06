@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:thor_enterprises/Screens/DashboardScreen.dart';
+import 'package:thor_enterprises/Screens/Models/MyButtonContainer.dart';
+import 'package:thor_enterprises/Utils/Colors.dart';
+import 'Models/MyContainer.dart';
+import 'Models/MyDroneContainer.dart';
 import 'Widgets/MyButtonContainer.dart';
 import 'Widgets/MyContainer.dart';
 import 'Widgets/MyDroneContainer.dart';
@@ -11,10 +16,10 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xff1C251D),
+        backgroundColor: primaryColor,
         appBar: AppBar(
           elevation: 0,
-          backgroundColor: Color(0xff1C251D),
+          backgroundColor: primaryColor,
           title: Text(
             "Trade Point",
             style: GoogleFonts.montserrat(
@@ -38,71 +43,95 @@ class MyHomePage extends StatelessWidget {
             ),
           ],
         ),
-        body: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(5.0),
+        body: Padding(
+          padding: EdgeInsets.all(10.0),
+          child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                MyContainer(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(
+                          myContainerModel.length,
+                          (index) => Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: MyContainer(
+                                  image: myContainerModel[index].image,
+                                  title: myContainerModel[index].title,
+                                  subtitle: myContainerModel[index].subtitle,
+                                ),
+                              ))),
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text("MY STORAGE",
                     style: GoogleFonts.montserrat(
                       fontSize: 25,
-                      color: Colors.white,
+                      color: textColor,
                       fontWeight: FontWeight.bold,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                MyDroneContainer(),
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: SizedBox(
+                    height: 250,
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: List.generate(
+                          myDroneContainerModel.length,
+                          (index) => Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: MyDroneContainer(
+                              image: myDroneContainerModel[index].image,
+                              number: myDroneContainerModel[index].number,
+                            ),
+                          ),
+                        )),
+                  ),
+                ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 Text("MY ORDERS",
                     style: GoogleFonts.montserrat(
                       fontSize: 25,
-                      color: Colors.white,
+                      color: textColor,
                       fontWeight: FontWeight.bold,
                     )),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: const [
-                      MyButtonContainer(
-                        color: Color(0xff393939),
-                        text: "Upcoming",
-                        textColor: Colors.white,
-                      ),
-                      SizedBox(
-                        width: 3,
-                      ),
-                      MyButtonContainer(
-                        color: Color(0xff393939),
-                        textColor: Colors.white,
-                        text: "Active",
-                      ),
-                      SizedBox(
-                        width: 3,
-                      ),
-                      MyButtonContainer(
-                        color: Color(0xffC1EE33),
-                        text: "Completed",
-                        textColor: Colors.black,
-                      )
-                    ],
-                  ),
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(
+                          myButtonContainerModel.length,
+                          (index) => Padding(
+                                padding: const EdgeInsets.all(3.0),
+                                child: MyButtonContainer(
+                                    color: myButtonContainerModel[index].color,
+                                    text: myButtonContainerModel[index].text,
+                                    btnTextColor: myButtonContainerModel[index]
+                                        .btnTextColor),
+                              ))),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 10,
                 ),
-                MyOrderContainer()
+                InkWell(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => MyDashboardScreen()));
+                    },
+                    child: MyOrderContainer())
               ],
             ),
           ),
